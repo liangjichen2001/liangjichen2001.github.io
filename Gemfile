@@ -12,3 +12,6 @@ end
 
 gem 'kramdown'
 gem 'kramdown-parser-gfm'
+
+# Windows needs timezone data for the Asia/Shanghai site setting.
+gem 'tzinfo-data', platforms: :windows

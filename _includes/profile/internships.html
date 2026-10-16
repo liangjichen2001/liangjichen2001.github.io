@@ -1,0 +1,5 @@
+<div class="experience-list">
+  {% for internship in site.data.profile.internships %}
+  <article class="experience-item"><div class="item-heading"><h3>{{ internship.organization }}</h3><span class="item-date">{{ internship.period }}</span></div><p class="item-subtitle">{{ internship.department }} · {{ internship.role }}</p>{% if include.compact %}<p class="muted">{{ internship.summary }}</p>{% else %}<ul class="detail-list">{% for contribution in internship.contributions %}<li>{{ contribution }}</li>{% endfor %}</ul>{% endif %}</article>
+  {% endfor %}
+</div>

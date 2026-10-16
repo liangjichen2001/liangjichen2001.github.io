@@ -1,0 +1,1 @@
+<ul class="award-list">{% for award in site.data.profile.awards %}<li><span>{{ award.name }}</span><strong>{{ award.result }}{% if award.note %}<small>{{ award.note }}</small>{% endif %}</strong></li>{% endfor %}</ul>

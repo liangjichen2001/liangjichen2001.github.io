@@ -1,18 +1,12 @@
-# The following is the order of the links in the header of the website.
-#
-# Changing the order here will adjust the order and you can also add additional
-# links. Removing a link prevents it from showing in the header, but does not
-# prevent it from being included in the site.
-#
-# NOTE that only one of the CV options should be selected, the first is for the
-#      Markdown formatted page while the second is generated using JSON.
-
+# 导航顺序与网站顶部一致。站内链接使用以 / 开头的永久链接。
 main:
-  - title: "About"
+  - title: "首页"
     url: /
-
-  - title: "Research"
-    url: /#research-interests
-
-  - title: "GitHub"
-    url: https://github.com/liangjichen2001
+  - title: "研究与论文"
+    url: /research/
+  - title: "项目"
+    url: /projects/
+  - title: "经历"
+    url: /experience/
+  - title: "简历"
+    url: /cv/

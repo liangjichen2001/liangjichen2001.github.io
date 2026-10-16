@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% include seo.html %}
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#f8fafb">
+    <link rel="icon" type="image/svg+xml" href="{{ '/images/monogram.svg' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/personal.css' | relative_url }}">
+    <script src="{{ '/assets/js/personal.js' | relative_url }}" defer></script>
+  </head>
+  <body>
+    {% assign profile = site.data.profile %}
+    <a class="skip-link" href="#main-content">跳至正文</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="site-brand" href="{{ '/' | relative_url }}" aria-label="陈亮吉，返回首页"><span class="brand-mark" aria-hidden="true">L<span>.</span>C</span><span class="brand-name">{{ profile.english_name }}</span></a>
+        <nav class="site-navigation" aria-label="主导航">
+          {% for link in site.data.navigation.main %}
+          <a href="{{ link.url | relative_url }}"{% if page.url == link.url %} aria-current="page"{% endif %}>{{ link.title }}</a>
+          {% endfor %}
+        </nav>
+        <button class="theme-button" type="button" data-theme-toggle aria-label="切换至深色主题" hidden><svg class="theme-moon" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20.5 13.5A8.5 8.5 0 0 1 10.5 3.2 8.5 8.5 0 1 0 20.5 13.5Z"/></svg><svg class="theme-sun" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg></button>
+      </div>
+    </header>
+    <div class="site-shell">
+      <aside class="profile-sidebar" aria-label="个人信息">
+        <div class="profile-identity">
+          <img class="profile-portrait" src="{{ profile.portrait | relative_url }}" alt="陈亮吉的个人照片" width="266" height="355" fetchpriority="high">
+          <div>
+            <p class="profile-name">{{ profile.name }}</p>
+            <p class="profile-english">{{ profile.english_name }}</p>
+            <p class="profile-role">{{ profile.role }}<span>Ph.D. Student in Mathematics</span></p>
+          </div>
+        </div>
+        <div class="profile-affiliation"><p>{{ profile.institution }}</p><p>{{ profile.school }}</p><p class="profile-location"><span aria-hidden="true">↳</span> {{ profile.location }}</p></div>
+        <div class="profile-links">
+          <a href="mailto:{{ profile.email }}"><span>学术邮箱</span><span aria-hidden="true">↗</span></a>
+          <a href="{{ profile.github }}"><span>GitHub</span><span aria-hidden="true">↗</span></a>
+          <a href="{{ '/cv/' | relative_url }}"><span>个人简历</span><span aria-hidden="true">→</span></a>
+        </div>
+        <p class="sidebar-note">数学的严谨，数据的洞察。</p>
+      </aside>
+      <main id="main-content" class="main-content{% if page.home %} home-content{% endif %}" tabindex="-1">
+        {% unless page.home %}
+        <header class="page-heading"><p class="eyebrow">{{ page.eyebrow | default: 'LIANGJI CHEN' }}</p><h1>{{ page.title }}</h1>{% if page.description %}<p class="page-intro">{{ page.description }}</p>{% endif %}</header>
+        {% endunless %}
+        {{ content }}
+      </main>
+    </div>
+    <footer class="site-footer"><div><span>© {{ site.time | date: '%Y' }} {{ profile.name }} · {{ profile.english_name }}</span><span><a href="{{ '/sitemap/' | relative_url }}">网站地图</a><span class="footer-separator">/</span><a href="https://github.com/academicpages/academicpages.github.io">Academic Pages</a> · Jekyll</span></div></footer>
+  </body>
+</html>

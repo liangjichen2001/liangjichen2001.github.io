@@ -1,0 +1,10 @@
+---
+layout: personal
+title: "研究与论文"
+eyebrow: "RESEARCH & PUBLICATIONS"
+permalink: /research/
+description: "从随机过程与最优搜索，到机器学习和真实场景中的数据建模。"
+---
+<section class="content-section first-section" id="interests" aria-labelledby="interests-title"><h2 id="interests-title">研究方向</h2><div class="research-list">{% for interest in site.data.profile.interests %}<article><span class="section-number">{{ interest.number }}</span><div><h3>{{ interest.title }}</h3><p class="english-label">{{ interest.english }}</p><p>{{ interest.description }}</p></div></article>{% endfor %}</div></section>
+<section class="content-section" id="publications" aria-labelledby="papers-title"><div class="section-heading"><h2 id="papers-title">期刊论文</h2><span class="section-note">PUBLICATIONS</span></div>{% for publication in site.publications reversed %}<article class="publication-entry"><span class="publication-year">{{ publication.date | date: '%Y' }}</span><div><h3><a href="{{ publication.url | relative_url }}">{{ publication.title }}</a></h3><p><strong>陈亮吉</strong>，朱晨君</p><p class="muted">{{ publication.venue }}，{{ publication.date | date: '%Y' }}，{{ publication.volume_issue }}：{{ publication.pages }}。</p><div class="inline-links"><a href="{{ publication.url | relative_url }}">研究介绍 <span aria-hidden="true">↗</span></a><a href="{{ publication.bibtexurl | relative_url }}" download>BibTeX <span aria-hidden="true">↓</span></a></div></div></article>{% endfor %}</section>
+<section class="content-section" aria-labelledby="practice-title"><h2 id="practice-title">将方法带入真实问题</h2><p>在研究之外，我也关注模型如何服务于实际问题：以混合神经网络开展电力负荷预测，以 XGBoost 分析用户流失风险，并参与数据交易场景中的匹配算法优化。</p><a class="button button-secondary" href="{{ '/projects/' | relative_url }}">查看相关项目 <span aria-hidden="true">→</span></a></section>

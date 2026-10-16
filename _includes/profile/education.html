@@ -1,0 +1,5 @@
+<div class="timeline">
+  {% for education in site.data.profile.education %}
+  <article class="timeline-item"><p class="timeline-period">{{ education.period }}</p><div><h3>{{ education.institution }}</h3><p class="item-subtitle">{{ education.degree }}</p><p class="muted">{{ education.detail }}</p></div></article>
+  {% endfor %}
+</div>
